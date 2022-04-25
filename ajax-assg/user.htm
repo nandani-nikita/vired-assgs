@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AJAX ASSIGNMENT</title>
+    <script>
+
+        urlCurrent = window.location.href;
+        console.log(urlCurrent);
+        name = (urlCurrent.split('?')[1].split('=')[1]);
+        name = name.split('%20').join(" ")
+        console.log(name);
+
+
+        var xhr = new XMLHttpRequest();
+        var url = 'https://jsonplaceholder.typicode.com/users';
+        xhr.response = 'json';
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                let json = JSON.parse(xhr.responseText);
+
+                for (let key in json) {
+                    // console.log(json[key]);
+                    if(json[key].name == name) {
+                        var msg = `Hi, my name is ${json[key].name}and I live at ${json[key].address.street}. You can contact me at ${json[key].email}`;
+                        console.log(msg);
+                        document.getElementById('dataDiv').innerText = msg
+                    }
+                }
+                
+            }
+        };
+        xhr.open("GET", url, true);
+        xhr.send()
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <h3>AJAX ASSIGNMENT</h3>
+        <h2>User Data</h2>
+    </div>
+    <hr>
+
+
+    <div id="dataDiv">
+
+    </div>
+
+</body>
+
+</html>
