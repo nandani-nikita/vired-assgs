@@ -4,31 +4,39 @@
 <head>
     <title>AJAX ASSIGNMENT</title>
     <script src="assg.js">
-    
+
     </script>
+    <link rel="stylesheet" href="assg.css">
 </head>
 
 <body>
     <div>
-        <h3>AJAX ASSIGNMENT</h3>
+        <h4>AJAX ASSIGNMENT</h4>
         <p>--------Assg--------</p>
     </div>
     <hr>
     <div>
-        For this assignment, we have to create a live server and then run the code on port 5500 as: 127.0.0.1:5500/ajax-assg/assg.html
-        <br> For me, I added live server extension in my VS code and then ran the code by Starting Live Server (by right clicking). Then in browser ran the code on above mentioned port.
+        For this assignment, we have to create a live server and then run the code on port 5500 as:
+        127.0.0.1:5500/ajax-assg/assg.html
+        <br> For me, I added live server extension in my VS code and then ran the code by Starting Live Server (by right
+        clicking). Then in browser ran the code on above mentioned port.
         <br> This was done because of CORS Policy error.
     </div>
     <hr>
     <br>
-    <a href="userList.htm">Get All Users</a>
-    <br>
-    <br>
-    <button onclick="getFive()">Get Five Users</button>
-    <div id="fiveUsers">
-        
+    <div id="btn"><button onclick="getAll()">Get All Users</button>
+
+        <button onclick="getFive(5)">Get Five Users</button>
+
+        <button onclick="getDetailedUsers()">Get Detailed Users</button>
+      
+        <a href="http://127.0.0.1:5500/ajax-assg/newUser.htm" target="_blank" id="btn">Add New User</a>
     </div>
-    
+
+    <div id="users">
+
+    </div>
+
 </body>
 
 </html>

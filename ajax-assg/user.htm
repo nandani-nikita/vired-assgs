@@ -3,6 +3,7 @@
 
 <head>
     <title>AJAX ASSIGNMENT</title>
+    <link rel="stylesheet" href="assg.css">
     <script>
 
         urlCurrent = window.location.href;
@@ -20,26 +21,31 @@
                 let json = JSON.parse(xhr.responseText);
 
                 for (let key in json) {
-                    // console.log(json[key]);
-                    if(json[key].name == name) {
-                        var msg = `Hi, my name is ${json[key].name}and I live at ${json[key].address.street}. You can contact me at ${json[key].email}`;
-                        console.log(msg);
-                        document.getElementById('dataDiv').innerText = msg
+                    if (json[key].name == name) {
+                        console.log(json[key]);
+                        var msg = document.createTextNode(`Hi, my name is ${json[key].name}and I live at ${json[key].address.street}. You can contact me at ${json[key].email}`);
+                        // console.log(msg);
+                        var para = document.createElement('p');
+                        para.appendChild(msg);
+                        document.getElementById('dataDiv').appendChild(para)
+
                     }
                 }
-                
+
             }
         };
         xhr.open("GET", url, true);
         xhr.send()
 
     </script>
+
+
 </head>
 
 <body>
     <div>
-        <h3>AJAX ASSIGNMENT</h3>
-        <h2>User Data</h2>
+        <h4>AJAX ASSIGNMENT</h4>
+        <h3>User Data</h3>
     </div>
     <hr>
 
@@ -47,6 +53,7 @@
     <div id="dataDiv">
 
     </div>
+    <div id="details"></div>
 
 </body>
 

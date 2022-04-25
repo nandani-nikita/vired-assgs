@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AJAX ASSIGNMENT</title>
+    <link rel="stylesheet" href="assg.css">
+    <script>
+
+        // urlCurrent = window.location.href;
+        // console.log(urlCurrent);
+        // name = (urlCurrent.split('?')[1].split('=')[1]);
+        // name = name.split('%20').join(" ")
+        // console.log(name);
+
+
+        // var xhr = new XMLHttpRequest();
+        // var url = 'https://jsonplaceholder.typicode.com/users';
+        // xhr.response = 'json';
+        // xhr.onreadystatechange = () => {
+        //     if (xhr.readyState === XMLHttpRequest.DONE) {
+        //         let json = JSON.parse(xhr.responseText);
+
+        //         for (let key in json) {
+        //             if (json[key].name == name) {
+        //                 console.log(json[key]);
+        //                 var msg = document.createTextNode(`Hi, my name is ${json[key].name}and I live at ${json[key].address.street}. You can contact me at ${json[key].email}`);
+        //                 // console.log(msg);
+        //                 var para = document.createElement('p');
+        //                 para.appendChild(msg);
+        //                 document.getElementById('dataDiv').appendChild(para)
+
+        //             }
+        //         }
+
+        //     }
+        // };
+        // xhr.open("POST", url, true);
+        // xhr.send()
+        function submitForm() {
+            event.preventDefault();
+            var name =  document.getElementById('name').value;
+             var email =  document.getElementById('email').value
+            
+            alert(`name: ${name}, email: ${email}`)
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+    <div>
+        <h4>AJAX ASSIGNMENT</h4>
+        <h3>Create New User</h3>
+    </div>
+    <hr>
+<form method="post" action="#">
+
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>:</td>
+            <td><input type="text" autofocus required name="userid" id="userid"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td><input type="text" required name="name" id="name"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>:</td>
+            <td><input type="email" required name="email" id="email"></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>:</td>
+            <td><textarea name="address" id="address"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><input type="button" name="btnSubmit" id="btnSubmit" onclick="submitForm()" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+
+</html>
